@@ -1,0 +1,92 @@
+<h1>Pages#testux</h1>
+<p>Find me in app/views/pages/testux.html.erb</p>
+
+
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
+    <p>Change your life and learn to code at one of our campuses around the world.</p>
+    <a class="btn btn-flat" href="#">Apply now</a>
+  </div>
+</div>
+
+
+<!-- Button -->
+
+<%= link_to "Write a story", "#", class: "btn btn-ghost" %>
+<%= link_to "Book now", "#", class: "btn btn-flat" %>
+<%= link_to "Start now", "#", class: "btn btn-gradient" %>
+
+
+<!-- Alerts -->
+
+<div class="flash flash-success alert alert-dismissible fade show" role="alert">
+  <span><strong>Yay!</strong> 🎉 you successfully signed in to our service.</span>
+  <a data-dismiss="alert" aria-label="Close">
+    <i class="fas fa-times"></i>
+  </a>
+</div>
+
+<div class="flash flash-warning alert alert-dismissible fade show" role="alert">
+  <span><strong>Mmh</strong> 🤔 seems like you don't have <a href="#">profile picture</a> yet.</span>
+  <a data-dismiss="alert" aria-label="Close">
+    <i class="fas fa-times"></i>
+  </a>
+</div>
+
+<div class="flash flash-danger alert alert-dismissible fade show" role="alert">
+  <span><strong>Oops!</strong> 😱 a problem has occurred while processing your booking.</span>
+  <a data-dismiss="alert" aria-label="Close">
+    <i class="fas fa-times"></i>
+  </a>
+</div>
+
+
+<!-- Card category -->
+
+
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  Breakfast
+</div>
+
+<!-- Card product -->
+
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2>Product name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div>
+
+
+<!-- Card trip -->
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2>Title here</h2>
+      <p>Short description here!</p>
+    </div>
+    <h2 class="card-trip-pricing">£99.99</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
+
+<!-- Card grid -->
+<div class="cards">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    Breakfast
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
+    Lunch
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+    Dinner
+  </div>
+</div>
+
+
