@@ -9,12 +9,31 @@
   </div>
 </div>
 
-        <h2>Spots d'entrainement</h2>
+<h2>Users</h2>
+
+<div class="card-product">
+          <% @users.each do |user| %>
+        <%= image_tag "https://thispersondoesnotexist.com/image" %>
+
+          <div class="card-product-infos">
+            <h2><%= user.first_name %></h2>
+            <h2><%= user.last_name %></h2>
+            <p>User description with <strong>relevant info</strong> only.</p>
+          </div>
+          <% end %>
+
+</div>
+
+
+<h2>Spots d'entrainement</h2>
 
 <div class="cards">
         <% @places.each do |place| %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= place.avatar %>)">
             <%= place.name %>
+
+            <%= place.user_id %>
+
           </div>
         <% end %>
 </div>

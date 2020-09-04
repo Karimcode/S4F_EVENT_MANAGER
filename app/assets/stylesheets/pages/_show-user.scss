@@ -1,0 +1,171 @@
+.container-page-teacher {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.background-top-teacher {
+  background-color: white;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  color: black;
+  text-align: center;
+}
+
+.container-teacher {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70vw;
+  margin: 0 auto;
+}
+
+.email-teacher {
+  color: #cccccc;
+}
+
+.yellow {
+  color: #f7db3d;
+}
+
+.avis-teacher{
+  display: flex;
+  align-items: center;
+  p {
+    margin: 0 5px;
+  }
+}
+
+.button-profile-position {
+  padding: 30px;
+}
+
+.avatar-photo {
+  margin-top: 30px;
+}
+
+.background-review {
+  text-align: left;
+}
+
+
+.teacher-avatar {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 55px;
+
+}
+
+
+
+.text-center-teacher {
+  padding-right: 80px;
+  text-align: justify;
+}
+
+.right-part-top {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  margin-right: 15px;
+}
+
+.button-rejoindre-teacher {
+  padding-top: 20px;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+// 2ème partie
+.info-teacher {
+  width: 70vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.first-column-teacher {
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  text-align: justify;
+  margin-top: 50px;
+}
+
+.background-matiere {
+  background-color: white;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+  border-radius: 4px;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.background-review {
+  background-color: white;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+  border-radius: 4px;
+  padding: 25px;
+}
+
+.second-column-teacher {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  margin-left: 40px;
+}
+
+.methodologie-card {
+  background-color: white;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+  border-radius: 4px;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.parcours-card {
+  background-color: white;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+  border-radius: 4px;
+  padding: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.review-teacher-card {
+  background-color: white;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+  border-radius: 4px;
+  padding: 30px;
+  width: 100%;
+}
+
+.disposition-tag {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag-word p {
+  background-color: #f37f7f;
+  border-radius: 4px;
+  padding: 5px;
+  padding-right: 7px;
+  padding-left: 7px;
+  margin: 0 7px 5px 0;
+  color: white;
+  display: inline-block;
+}
+
+//3ème partie
+
+.button-profile-position {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}

@@ -25,7 +25,7 @@ puts "Places and Users destroyed"
 # end
 
 
-10.times do
+2.times do
   Place.create!(
     name: Faker::Superhero.name,
     avatar: Faker::LoremFlickr.image,
@@ -34,12 +34,13 @@ puts "Places and Users destroyed"
     )
 end
 
-# louvre =   Place.create!(
-#     name: "Louvre",
-#     avatar: "https://lh3.googleusercontent.com/proxy/vuSlRRLGe70YRMO8EeI3gEaxNbuIJ6pw4PUlbL0o05XSTDads5TwUySzSmuymiORji8JsSwAhXuixi-5eyBoEWvQMYoLVZsJtmNJ4Zie9IN7YVlcvdzqU1i4HXC7GnzoOTI",
-#     description: "Jardin des Tuileries"
-#   )
+louvre =   Place.create!(
+    name: "Louvre",
+    avatar: "https://lh3.googleusercontent.com/proxy/vuSlRRLGe70YRMO8EeI3gEaxNbuIJ6pw4PUlbL0o05XSTDads5TwUySzSmuymiORji8JsSwAhXuixi-5eyBoEWvQMYoLVZsJtmNJ4Zie9IN7YVlcvdzqU1i4HXC7GnzoOTI",
+    description: "Jardin des Tuileries",
+    user_id: "10"
+  )
 
-# louvre.save!
+louvre.save!
 
 puts "Places and Users created"

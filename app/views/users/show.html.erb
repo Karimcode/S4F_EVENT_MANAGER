@@ -1,0 +1,85 @@
+<div class="background-top-teacher">
+  <div class="container-teacher">
+    <div class="avatar-photo text-center teacher-avatar">
+
+    </div>
+
+<img class="avatar-very-large alt="avatar-very-large" src= <%= "https://thispersondoesnotexist.com/image" %> />
+
+
+    <div class="text-center-teacher">
+      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+      <p class="email-teacher"><%= @user.email %></p>
+        </div>
+        <div class="button-profile-position">
+          <% if @user == current_user %>
+            <%= link_to "Edit profile", edit_user_path(@user), class:"btn-lessen" %>
+          <% end %>
+        </div>
+
+
+
+
+          </div>
+</div>
+
+
+        <div class="info-teacher">
+          <div class="first-column-teacher">
+            <div class="background-matiere">
+                <h5><strong>Téléphone</strong></h5>
+                  <div class="disposition-tag">
+
+                    </div>
+                  <h5><strong>Email</strong></h5>
+                    <div class="disposition-tag">
+
+                  <h5><strong>Job</strong></h5>
+                  <div class="disposition-tag">
+
+                  <h5><strong>Company</strong></h5>
+                  <div class="disposition-tag">
+                  </div>
+                  </div>
+
+                </div>
+
+            </div>
+            <div class="background-review">
+              <h5><strong>À propos</strong></h5>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>>
+            </div>
+          </div>
+          <div class="second-column-teacher">
+            <div class="methodologie-card">
+              <h5><strong>Méthodologie</strong></h5>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+            <div class="parcours-card">
+              <h5><strong>Parcours</strong></h5>
+              <ul>
+                <li>Plus de 5 années d'expérience</li>
+
+                <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</li>
+
+                <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</li>
+
+                <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</li>
+
+                <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</li>
+
+                <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+        <div class="button-profile-position">
+          <% if @user == current_user %>
+            <%= link_to "Edit profile", edit_user_path(@user), class:"btn-lessen" %>
+          <% end %>
+        </div>
+
+
+
+

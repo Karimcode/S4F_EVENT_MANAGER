@@ -3,6 +3,8 @@ class PagesController < ApplicationController
 
   def home
     @places = Place.all
+    @users = User.all
+
   end
 
   def testux
