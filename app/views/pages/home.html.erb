@@ -18,11 +18,13 @@
           <div class="card-product-infos">
             <h2><%= user.first_name %></h2>
             <h2><%= user.last_name %></h2>
-            <p>User description with <strong>relevant info</strong> only.</p>
+           <%= link_to "Voir le profil", user_path(user),  class:"text-space-profile" %>
           </div>
           <% end %>
 
 </div>
+
+
 
 
 <h2>Spots d'entrainement</h2>
@@ -33,6 +35,19 @@
             <%= place.name %>
 
             <%= place.user_id %>
+          </div>
+        <% end %>
+</div>
+
+
+<h2>Jours d'entrainement</h2>
+
+<div class="cards">
+        <% @events.each do |event| %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://lh3.googleusercontent.com/proxy/DQ9YqV7DLTYJHg27fVtCW_DuFp4Wr2iC7G3uXWVBBKSnHDrdpBpAj52sSlXoPj54JIyRbGOQe4h74ZUUGl8rrrc1zDcTJ0pihpI985LHULDFg1NY)">
+            <%= event.place_id %>
+
+            <%= event.event_date %>
 
           </div>
         <% end %>

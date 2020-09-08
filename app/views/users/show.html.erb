@@ -8,7 +8,7 @@
 
 
     <div class="text-center-teacher">
-      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+      <h1><%= @user.first_name %> <%= @user.last_name %> </h1>
       <p class="email-teacher"><%= @user.email %></p>
         </div>
         <div class="button-profile-position">
@@ -17,33 +17,36 @@
           <% end %>
         </div>
 
+<div class="right-part-top">
+          <div class="next-class">
+              <% is_none = true %>
+              <p style="color:black"><strong>StreetFiter depuis </strong>
+                </p><%= @user.created_at %>
 
+              </div>
+            </div>
+          </div>
 
 
           </div>
 </div>
 
-
+<!-- Column User attribut  -->
         <div class="info-teacher">
           <div class="first-column-teacher">
             <div class="background-matiere">
-                <h5><strong>Téléphone</strong></h5>
-                  <div class="disposition-tag">
-
-                    </div>
-                  <h5><strong>Email</strong></h5>
-                    <div class="disposition-tag">
-
-                  <h5><strong>Job</strong></h5>
-                  <div class="disposition-tag">
-
-                  <h5><strong>Company</strong></h5>
-                  <div class="disposition-tag">
-                  </div>
-                  </div>
-
+                <div class="disposition-tag">
+                  <h5><strong>Téléphone</strong></h5>
                 </div>
-
+                <div class="disposition-tag">
+                  <h5><strong>Email</strong></h5>
+                </div>
+                <div class="disposition-tag">
+                  <h5><strong>Job</strong></h5>
+                </div>
+                <div class="disposition-tag">
+                  <h5><strong>Company</strong></h5>
+                </div>
             </div>
             <div class="background-review">
               <h5><strong>À propos</strong></h5>

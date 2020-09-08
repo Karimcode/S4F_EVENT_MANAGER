@@ -9,9 +9,9 @@
 
 require 'faker'
 
-Place.destroy_all
-# User.destroy_all
-puts "Places and Users destroyed"
+# Place.destroy_all
+# # User.destroy_all
+# puts "Places and Users destroyed"
 
 
 # 3.times do
@@ -25,22 +25,36 @@ puts "Places and Users destroyed"
 # end
 
 
-2.times do
-  Place.create!(
-    name: Faker::Superhero.name,
-    avatar: Faker::LoremFlickr.image,
+# 2.times do
+#   Place.create!(
+#     name: Faker::Superhero.name,
+#     avatar: Faker::LoremFlickr.image,
+#     description: Faker::Lorem.sentence(word_count: rand(20..100)),
+#     user_id: "10"
+#     )
+# end
+
+# louvre =   Place.create!(
+#     name: "Louvre",
+#     avatar: "https://lh3.googleusercontent.com/proxy/vuSlRRLGe70YRMO8EeI3gEaxNbuIJ6pw4PUlbL0o05XSTDads5TwUySzSmuymiORji8JsSwAhXuixi-5eyBoEWvQMYoLVZsJtmNJ4Zie9IN7YVlcvdzqU1i4HXC7GnzoOTI",
+#     description: "Jardin des Tuileries",
+#     user_id: "10"
+#   )
+
+# louvre.save!
+
+100.times do
+  Event.create(
+    title: Faker::Quote.matz[0..120],
+    event_date: Faker::Date.forward(days: rand(50..100)),
+    start_at: Time.now,
+    end_at: Time.now + 1*60*60,
+    duration: "1",
     description: Faker::Lorem.sentence(word_count: rand(20..100)),
-    user_id: "10"
-    )
+    place_id: "28"
+  )
 end
 
-louvre =   Place.create!(
-    name: "Louvre",
-    avatar: "https://lh3.googleusercontent.com/proxy/vuSlRRLGe70YRMO8EeI3gEaxNbuIJ6pw4PUlbL0o05XSTDads5TwUySzSmuymiORji8JsSwAhXuixi-5eyBoEWvQMYoLVZsJtmNJ4Zie9IN7YVlcvdzqU1i4HXC7GnzoOTI",
-    description: "Jardin des Tuileries",
-    user_id: "10"
-  )
 
-louvre.save!
 
-puts "Places and Users created"
+puts "Events created"
