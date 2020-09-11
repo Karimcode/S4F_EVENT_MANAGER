@@ -6,20 +6,29 @@
 
 
 
-<%= month_calendar events: @events do |date, meetings| %>
-<span class="my-date"><%= date.day %></span>
-  <% meetings.each do |meeting| %>
-    <div>
-      <%= meeting.title %>
-    </div>
-  <% end %>
-<% end %>
+<div class="calendar-heading">
+  <div class="calendar">
+    <%= month_calendar events: @events do |date, meetings| %>
+      <span class="my-date"><%= date.day %></span>
+                      <% meetings.each do |meeting| %>
+                        <div>
+                          <!-- Mettre le numéro de participation à la séance -->
+                  <% if meeting.title == "Fit" %>
+
+                        <%= link_to meeting.title, event_path(meeting),  class: "btn btn-flat-fit"   %>
+
+                  <% else %>
+
+                        <%= link_to meeting.title, event_path(meeting),  class:"btn btn-flat-boxe"  %>
+
+                      <% end %>
+
+                        </div>
+                      <% end %>
+    <% end %>
+  </div>
 
 
 
-
-
-
-
-
+            <%= link_to "Create event", new_event_path, class:"btn btn-flat " %>
 

@@ -1,0 +1,35 @@
+<div class="container">
+  <%= simple_form_for(current_user) do |f| %>
+      <h3>Edit your Profile</h3>
+
+    <div class="col">
+      <p><%= f.input :first_name, placeholder:"Enter your First Name" %></p>
+    </div>
+    <div class="col">
+      <p><%= f.input :last_name, placeholder:"Enter your Last Name" %></p>
+    </div>
+
+    <div class="col">
+      <p><%= f.input :phone, placeholder:"Enter your Phone number" %></p>
+    </div>
+
+    <div class="col">
+      <p><%= f.input :email, placeholder:"Enter your email address" %></p>
+    </div>
+
+    <div class="col">
+      <p><%= f.input :job, placeholder:"Enter your Job" %></p>
+    </div>
+
+    <div class="col">
+      <p><%= f.input :company, placeholder:"Enter your Company" %></p>
+    </div>
+
+    <div class="col text-edit">
+      <p><%= f.input :description, placeholder:"Describe yourself" %></p>
+    </div>
+
+      <%= f.submit "Update my Profile", class: "btn-btn flat" %>
+  <% end %>
+  </div>
+</div>

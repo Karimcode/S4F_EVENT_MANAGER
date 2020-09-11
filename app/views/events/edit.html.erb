@@ -1,2 +1,22 @@
 <h1>Events#edit</h1>
-<p>Find me in app/views/events/edit.html.erb</p>
+
+
+<div class="container">
+  <%= simple_form_for(@event) do |f| %>
+      <h3>Edit your Profile</h3>
+
+    <div class="col">
+      <p><%= f.input :title, placeholder:"Enter your Title Name" %></p>
+    </div>
+    <div class="col">
+      <p><%= f.input :event_date, placeholder:"Enter your date " %></p>
+    </div>
+
+
+      <%= f.submit "Update the Event", class: "btn-btn flat" %>
+  <% end %>
+  </div>
+</div>
+
+
+

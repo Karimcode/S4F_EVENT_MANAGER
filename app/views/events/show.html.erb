@@ -55,3 +55,12 @@
         </div>
 
         </div>
+
+        <div class="button-profile-position">
+            <%= link_to "Edit event", edit_event_path(@event), class:"btn btn-flat " %>
+        </div>
+
+        <div class="button-profile-position">
+            <%= link_to "Destroy event", event_path(@event), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-flat " %>
+        </div>
+

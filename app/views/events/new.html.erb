@@ -1,2 +1,19 @@
 <h1>Events#new</h1>
 <p>Find me in app/views/events/new.html.erb</p>
+
+
+
+<div class="container">
+  <div class="row justify-center-center">
+    <div class="col-12">
+      <%= simple_form_for @event do |f| %>
+        <%= f.input :title %>
+        <%= f.input :event_date, as: :date, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
+        <%= f.input :duration %>
+        <%= f.submit 'Submit',class: "btn btn-flat"%>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
