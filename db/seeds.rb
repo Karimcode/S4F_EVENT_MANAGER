@@ -40,7 +40,7 @@ louvre =   Place.create!(
     name: "Tuileries",
     avatar: "https://lh3.googleusercontent.com/proxy/vuSlRRLGe70YRMO8EeI3gEaxNbuIJ6pw4PUlbL0o05XSTDads5TwUySzSmuymiORji8JsSwAhXuixi-5eyBoEWvQMYoLVZsJtmNJ4Zie9IN7YVlcvdzqU1i4HXC7GnzoOTI",
     description: "Jardin des Tuileries",
-    user_id: "10"
+    user_id: "1"
   )
 
 louvre.save!
