@@ -1,15 +1,16 @@
 <h1>Events#new</h1>
 <p>Find me in app/views/events/new.html.erb</p>
 
-
-
+<!-- (@event), url: new_event_path, local: true do |f|
+ -->
 <div class="container">
   <div class="row justify-center-center">
     <div class="col-12">
       <%= simple_form_for @event do |f| %>
-        <%= f.input :title %>
-        <%= f.input :event_date, as: :date, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
+        <%= f.input :title, collection: ["Fit", "Boxe"] %>
+        <%= f.input :event_date %>
         <%= f.input :duration %>
+        <%= f.input :place_id, collection: ["28"] %>
         <%= f.submit 'Submit',class: "btn btn-flat"%>
       <% end %>
     </div>
