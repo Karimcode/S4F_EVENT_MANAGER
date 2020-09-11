@@ -25,7 +25,29 @@
 </div>
 
 
+<h2>Jours d'entrainement</h2>
 
+<div class="calendar-heading">
+  <div class="calendar">
+    <%= month_calendar events: @events do |date, meetings| %>
+      <span class="my-date"><%= date.day %></span>
+                      <% meetings.each do |meeting| %>
+                        <div>
+                          <!-- Mettre le numéro de participation à la séance -->
+                  <% if meeting.title == "Fit" %>
+
+                        <%= link_to meeting.title, event_path(meeting),  class: "btn btn-flat-fit"   %>
+
+                  <% else %>
+
+                        <%= link_to meeting.title, event_path(meeting),  class:"btn btn-flat-boxe"  %>
+
+                      <% end %>
+
+                        </div>
+                      <% end %>
+    <% end %>
+  </div>
 
 <h2>Spots d'entrainement</h2>
 
@@ -40,16 +62,5 @@
 </div>
 
 
-<h2>Jours d'entrainement</h2>
 
-<div class="cards">
-        <% @events.each do |event| %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://lh3.googleusercontent.com/proxy/DQ9YqV7DLTYJHg27fVtCW_DuFp4Wr2iC7G3uXWVBBKSnHDrdpBpAj52sSlXoPj54JIyRbGOQe4h74ZUUGl8rrrc1zDcTJ0pihpI985LHULDFg1NY)">
-            <%= event.place_id %>
-
-            <%= event.event_date %>
-
-          </div>
-        <% end %>
-</div>
 

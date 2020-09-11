@@ -39,3 +39,30 @@
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
 }
+
+
+.calendar-heading .btn-flat-fit {
+  color: white;
+  padding:  2px;
+  border-radius: 4px;
+  background: #fd1015;;
+  transition: background 0.3s ease;
+}
+
+.btn-flat-fit:hover {
+  background: #fd101585;
+  color: white;
+}
+
+.calendar-heading .btn-flat-boxe {
+  color: white;
+  padding:  2px;
+  border-radius: 4px;
+  background: #344556;
+  transition: background 0.3s ease;
+}
+
+.btn-flat-boxe:hover {
+  background: #7ca1c5;
+  color: white;
+}

@@ -30,6 +30,10 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
 
+gem "simple_calendar", "~> 2.0"
+
+gem 'groupdate'
+gem "chartkick", '~> 3.3.0'
 
 gem 'faker'
 

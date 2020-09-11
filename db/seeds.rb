@@ -9,6 +9,8 @@
 
 require 'faker'
 
+Event.destroy_all
+
 # Place.destroy_all
 # # User.destroy_all
 # puts "Places and Users destroyed"
@@ -43,10 +45,10 @@ require 'faker'
 
 # louvre.save!
 
-100.times do
+50.times do
   Event.create(
-    title: Faker::Quote.matz[0..120],
-    event_date: Faker::Date.forward(days: rand(50..100)),
+    title: "Boxe",
+    event_date: Faker::Date.forward(days: 7*rand(1..50)),
     start_at: Time.now,
     end_at: Time.now + 1*60*60,
     duration: "1",
@@ -55,6 +57,17 @@ require 'faker'
   )
 end
 
+50.times do
+  Event.create(
+    title: "Fit",
+    event_date: Faker::Date.forward(days: 7*rand(1..50)),
+    start_at: Time.now,
+    end_at: Time.now + 1*60*60,
+    duration: "1",
+    description: Faker::Lorem.sentence(word_count: rand(20..100)),
+    place_id: "28"
+  )
+end
 
 
 puts "Events created"

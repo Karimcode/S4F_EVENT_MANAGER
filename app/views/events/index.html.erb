@@ -2,3 +2,24 @@
 <p>Find me in app/views/events/index.html.erb</p>
 
 
+
+
+
+
+<%= month_calendar events: @events do |date, meetings| %>
+<span class="my-date"><%= date.day %></span>
+  <% meetings.each do |meeting| %>
+    <div>
+      <%= meeting.title %>
+    </div>
+  <% end %>
+<% end %>
+
+
+
+
+
+
+
+
+
