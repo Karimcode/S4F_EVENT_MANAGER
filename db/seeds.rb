@@ -53,7 +53,7 @@ Event.destroy_all
     end_at: Time.now + 1*60*60,
     duration: "1",
     description: Faker::Lorem.sentence(word_count: rand(20..100)),
-    place_id: "28"
+    place_id: "1"
   )
 end
 
@@ -65,7 +65,7 @@ end
     end_at: Time.now + 1*60*60,
     duration: "1",
     description: Faker::Lorem.sentence(word_count: rand(20..100)),
-    place_id: "28"
+    place_id: "1"
   )
 end
 
