@@ -2,24 +2,28 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @events = Event.all
-      # @event = Event.find(params[:id])
+    authorize @user
 
-        @daily_emotions = DailyEmotion.all
-    # if DailyEmotion.find(params[:id]).exists?
-    #     @daily_emotion = DailyEmotion.find(params[:id])
-    #     @emotion = @daily_emotion.emotion_id
-    # end
-    # @daily_emotion = DailyEmotion.find(user_id=params[:id])
+    @events = Event.all
+    @daily_emotions = DailyEmotion.all
+    # @daily_emotion = DailyEmotion.find_by(user_id: @user.id, event_id: @events.id)
+
+    # @dailynumber = @daily_emotion.map { |emo| [emo.created_at, emo.emotion.number] }
+
 
   end
 
   def edit
     @user = current_user
+    authorize @user
+
     current_user
   end
+
   def update
     @user = current_user
+    authorize @user
+
     @user.update(user_params)
     redirect_to user_path(current_user)
   end

@@ -1,22 +1,37 @@
 class EventsController < ApplicationController
   def index
-        @events = Event.all
+        # @events = Event.all
+        @events = policy_scope(Event)
+        @daily_emotions = policy_scope(DailyEmotion)
+
   end
 
   def show
       @event = Event.find(params[:id])
+      authorize @event
+
       @place = Place.find(@event.place_id)
       @daily_emotion = DailyEmotion.new
+      authorize @daily_emotion
+
       @users = User.all
+      @coaches = Coach.all
+      @user = current_user
+
   end
 
   def new
     @event = Event.new
+    authorize @event
+
     @daily_emotion = DailyEmotion.new(event_id: 'Event.find(params[:id])')
+    authorize @daily_emotion
+
   end
 
   def create
     @event = Event.create!(event_params)
+    authorize @event
 
 
     # @daily_emotion = DailyEmotion.create!(daily_emotion_params)
@@ -36,11 +51,15 @@ class EventsController < ApplicationController
   # GET /events/:id/edit
   def edit
     @event = Event.find(params[:id])
+    authorize @event
+
   end
 
   # PUT events/:id/edit
   def update
     @event = Event.find(params[:id])
+    authorize @event
+
     if @event.update(event_params)
       flash[:success] = "Update Event Success!"
            redirect_to event_path(@event.id)
@@ -55,6 +74,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
+    authorize @event
     @event.destroy
     # redirect_to user_path(current_user)
     redirect_to events_path

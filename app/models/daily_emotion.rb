@@ -4,6 +4,8 @@ class DailyEmotion < ApplicationRecord
   belongs_to :event
 
 
+
+
     def start_time
       # self.created_at
       Event.find(self.event_id).event_date

@@ -5,14 +5,18 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :places
 
-  has_many :daily_emotions
-  has_many :emotions, through: :daily_emotions
+  has_many :daily_emotions, dependent: :destroy
+  has_many :emotions, through: :daily_emotions, dependent: :destroy
+  has_one :coach, dependent: :destroy
 
 
   def full_name
     "#{first_name} #{last_name}"
   end
 
+  def coach?
+    self.coach.present?
+  end
 
 
 

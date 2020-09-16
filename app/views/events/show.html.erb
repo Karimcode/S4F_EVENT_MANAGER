@@ -28,13 +28,8 @@
               <ul>
                <h1><%= @event.title %>  </h1>
 
-                <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</li>
-
-                <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</li>
-
-                <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</li>
-
-                <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</li>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/0XuySxzWR78" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="
+                align-content: center;" ></iframe>
 
                 <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</li>
               </ul>
@@ -58,13 +53,15 @@
 
 
 <div class="container">
-
+<!-- Tableau des notations -->
 <table id="Résumé">
   <tr>
     <th>Name</th>
     <th></th>
     <th>Forme du jour</th>
   </tr>
+
+<!-- Tableau des notations pour les élèves-->
 
   <% @users.each do |user| %>
 
@@ -80,12 +77,15 @@
                           <% if DailyEmotion.where(user_id: "#{user.id}", event_id: "#{@event.id}").first.emotion_id == 4 %><%="🙂" %><% end %>
                           <% if DailyEmotion.where(user_id: "#{user.id}", event_id: "#{@event.id}").first.emotion_id == 11 %><%="😁" %><% end %>
           </td>
-
-
         <% end %>
 
     </tr>
-  <% end %>
+    <% else %>
+<!-- Tableau des notations pour le coach-->
+
+    <% end %>
+
+
 </table>
 
 </div>
@@ -93,11 +93,20 @@
 <div class="container">
 <!--   <div class="row justify-center-center">
   <div class="col-12" >
- -->      <%= simple_form_for @daily_emotion, remote: true  do |f| %>
+ -->
+
+      <%= simple_form_for @daily_emotion, remote: true  do |f| %>
         <div class="form-row">
-       <div class="col" >
-      <%= f.association :user, :collection => User.all, :include_blank => false, :label_method => :full_name, :value_method => :id %>
-        </div>
+      <% if @user.coach %>
+           <div class="col" >
+          <%= f.association :user, :collection => @users, :include_blank => false, :label_method => :full_name, :value_method => :id %>
+            </div>
+      <% else %>
+          <div class="col" >
+          <%= f.association :user, :collection => @coaches, :include_blank => false, :label_method => :full_name, :value_method => :user_id %>
+            </div>
+      <% end %>
+
        <div class="col" >
       <%= f.input :emotion_id, collection: Emotion.all, :include_blank => false %>
         </div>
@@ -110,6 +119,7 @@
         </div>
 
         <%= f.submit 'Noter',class: "btn btn-flat"%>
+
       <% end %>
     </div>
   </div>

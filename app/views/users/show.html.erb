@@ -9,6 +9,9 @@
 
     <div class="text-center-teacher">
       <h1><%= @user.first_name %> <%= @user.last_name %> </h1>
+      <% if @user.coach %>
+            <h2><strong>COACH </strong></h2>
+          <% end %>
       <p class="email-teacher"><%= @user.email %></p>
         </div>
         <div class="button-profile-position">
@@ -30,6 +33,29 @@
 
           </div>
 </div>
+
+<div class="calendar-heading">
+  <div class="calendar">
+            <div class="methodologie-card">
+
+<div class="carousel-item">
+              <div class="chart-container emo-chart" style="position: relative;">
+                <span style="position: absolute; left: 28px; top: 211px;"><%= Emotion.all.first.rating %></span>
+                <span style="position: absolute; left: 28px; top: 168px;"><%= Emotion.all.second.rating %></span>
+                <span style="position: absolute; left: 28px; top: 127px;"><%= Emotion.all.third.rating %></span>
+                <span style="position: absolute; left: 28px; top: 83px;"><%= Emotion.all.fourth.rating %></span>
+                <span style="position: absolute; left: 28px; top: 40px;"><%= Emotion.all.fifth.rating %></span>
+                <%= line_chart @dailynumber, label: "Emotion", xtitle: "Date", ytitle: "Emotions", points: true, xmin: "2019-12-02", xmax: "2019-12-06", min: 0, max: 5, id: 'chartkick', curve: true, discrete: false, colors: ['#F7D167'] %>
+              </div>
+            </div>
+          </div>
+
+<!-- line_chart DailyEmotion.group_by_day(Event.find(DailyEmotion.find_by(user_id:@user.id).event_id).event_date) -->
+
+
+              </div>
+            </div>
+  </div>
 
 <!-- Column User attribut  -->
         <div class="info-teacher">
@@ -53,6 +79,11 @@
               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>>
             </div>
           </div>
+
+
+
+
+
           <div class="second-column-teacher">
             <div class="methodologie-card">
                   <h3>Le mois de <%= @user.first_name %>:</h3>
@@ -61,9 +92,8 @@
                 <div id="events_calendar">
                   <%= render partial: "calendar", locals: {events: @events} %>
                 </div>
-                                </div>
-
             </div>
+
             <div class="parcours-card">
               <h5><strong>Description</strong></h5>
               <ul>
@@ -74,21 +104,17 @@
 
                 <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</li>
 
-                <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</li>
-
-                <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</li>
-
-                <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</li>
               </ul>
             </div>
 
           </div>
         </div>
-        <div class="button-profile-position">
-          <% if @user == current_user %>
-            <%= link_to "Edit profile", edit_user_path(@user), class:"btn-lessen" %>
-          <% end %>
         </div>
+
+
+
+
+
 
 
 

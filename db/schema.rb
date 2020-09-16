@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_14_114611) do
+ActiveRecord::Schema.define(version: 2020_09_16_103410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "coaches", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_coaches_on_user_id"
+  end
 
   create_table "daily_emotions", force: :cascade do |t|
     t.bigint "emotion_id"
@@ -76,6 +83,7 @@ ActiveRecord::Schema.define(version: 2020_09_14_114611) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "coaches", "users"
   add_foreign_key "daily_emotions", "emotions"
   add_foreign_key "daily_emotions", "events"
   add_foreign_key "daily_emotions", "users"
