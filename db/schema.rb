@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_07_164149) do
+ActiveRecord::Schema.define(version: 2020_09_14_114611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "daily_emotions", force: :cascade do |t|
+    t.bigint "emotion_id"
+    t.bigint "event_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["emotion_id"], name: "index_daily_emotions_on_emotion_id"
+    t.index ["event_id"], name: "index_daily_emotions_on_event_id"
+    t.index ["user_id"], name: "index_daily_emotions_on_user_id"
+  end
+
+  create_table "emotions", force: :cascade do |t|
+    t.integer "rating", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "events", force: :cascade do |t|
     t.string "title"
@@ -59,6 +76,9 @@ ActiveRecord::Schema.define(version: 2020_09_07_164149) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "daily_emotions", "emotions"
+  add_foreign_key "daily_emotions", "events"
+  add_foreign_key "daily_emotions", "users"
   add_foreign_key "events", "places"
   add_foreign_key "places", "users"
 end

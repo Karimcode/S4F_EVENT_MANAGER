@@ -6,21 +6,29 @@ class EventsController < ApplicationController
   def show
       @event = Event.find(params[:id])
       @place = Place.find(@event.place_id)
+      @daily_emotion = DailyEmotion.new
+      @users = User.all
   end
 
   def new
     @event = Event.new
+    @daily_emotion = DailyEmotion.new(event_id: 'Event.find(params[:id])')
   end
 
   def create
     @event = Event.create!(event_params)
 
 
+    # @daily_emotion = DailyEmotion.create!(daily_emotion_params)
+
+
     if @event.save
       redirect_to events_path
-
     end
 
+    # if @daily_emotion.save
+    #   redirect_back(fallback_location:"/")
+    # end
   end
 
 
@@ -61,5 +69,6 @@ private
 
   def place_params
   end
+
 
 end

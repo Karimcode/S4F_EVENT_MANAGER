@@ -1,0 +1,14 @@
+
+
+<div class="calendar-heading">
+  <div class="calendar">
+    <%= month_calendar events: @daily_emotions do |date, meetings| %>
+      <span class="my-date"><%= date.day %></span>
+                      <% meetings.each do |meeting| %>
+                        <div>
+ <%= @daily_emotions.where(created_at: date) %>
+                        </div>
+                      <% end %>
+    <% end %>
+  </div>
+

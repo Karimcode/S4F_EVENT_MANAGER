@@ -9,8 +9,8 @@
       <%= simple_form_for @event do |f| %>
         <%= f.input :title, collection: ["Fit", "Boxe"] %>
         <%= f.input :event_date %>
-        <%= f.input :duration %>
-        <%= f.input :place_id, collection: ["28"] %>
+        <%= f.input :duration, collection: ["1", "2"] %>
+        <%= f.association :place, :collection => Place.all, :include_blank => false, :label_method => :name, :value_method => :id %>
         <%= f.submit 'Submit',class: "btn btn-flat"%>
       <% end %>
     </div>

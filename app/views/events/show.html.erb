@@ -56,6 +56,66 @@
 
         </div>
 
+
+<div class="container">
+
+<table id="Résumé">
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th>Forme du jour</th>
+  </tr>
+
+  <% @users.each do |user| %>
+
+    <tr>
+      <% if  DailyEmotion.where(user_id: "#{user.id}", event_id: "#{@event.id}").count > 0 %>
+          <td><%= user.first_name %> <%= user.last_name %></td>
+          <td><%= "   " %></td>
+
+
+          <td>            <% if DailyEmotion.where(user_id: "#{user.id}", event_id: "#{@event.id}").first.emotion_id == 1 %><%="😞"%><% end %>
+                          <% if DailyEmotion.where(user_id: "#{user.id}", event_id: "#{@event.id}").first.emotion_id == 2 %><%="😕"%><% end %>
+                          <% if DailyEmotion.where(user_id: "#{user.id}", event_id: "#{@event.id}").first.emotion_id == 3 %><%="😐"%><% end %>
+                          <% if DailyEmotion.where(user_id: "#{user.id}", event_id: "#{@event.id}").first.emotion_id == 4 %><%="🙂" %><% end %>
+                          <% if DailyEmotion.where(user_id: "#{user.id}", event_id: "#{@event.id}").first.emotion_id == 11 %><%="😁" %><% end %>
+          </td>
+
+
+        <% end %>
+
+    </tr>
+  <% end %>
+</table>
+
+</div>
+
+<div class="container">
+<!--   <div class="row justify-center-center">
+  <div class="col-12" >
+ -->      <%= simple_form_for @daily_emotion, remote: true  do |f| %>
+        <div class="form-row">
+       <div class="col" >
+      <%= f.association :user, :collection => User.all, :include_blank => false, :label_method => :full_name, :value_method => :id %>
+        </div>
+       <div class="col" >
+      <%= f.input :emotion_id, collection: Emotion.all, :include_blank => false %>
+        </div>
+
+       <div class="col" >
+        <%= f.input :event_id, collection: [Event.find(params[:id])], selected: [Event.find(params[:id])]  %>
+        </div>
+
+
+        </div>
+
+        <%= f.submit 'Noter',class: "btn btn-flat"%>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
         <div class="button-profile-position">
             <%= link_to "Edit event", edit_event_path(@event), class:"btn btn-flat " %>
         </div>
@@ -63,4 +123,6 @@
         <div class="button-profile-position">
             <%= link_to "Destroy event", event_path(@event), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-flat " %>
         </div>
+
+
 

@@ -1,0 +1,5 @@
+
+        <%= simple_form_for(@daily_emotion) do |f| %>
+          <%= f.input :emotion_id, collection: Emotion.all, as: :radio_buttons %>
+          <%= f.submit class: "btn btn-sammi"%>
+        <% end %>

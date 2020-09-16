@@ -1,21 +1,32 @@
+
+
 <div class="calendar-heading">
   <div class="calendar">
-    <%= month_calendar events: @events do |date, meetings| %>
+    <%= month_calendar events: @events+@daily_emotions do |date, meetings| %>
       <span class="my-date"><%= date.day %></span>
                       <% meetings.each do |meeting| %>
                         <div>
-                          <!-- Mettre le numéro de participation à la séance -->
+          <% if meeting.is_a? Event %>
                   <% if meeting.title == "Fit" %>
-
                         <%= link_to meeting.title, event_path(meeting),  class: "btn btn-flat-fit"   %>
-
                   <% else %>
-
                         <%= link_to meeting.title, event_path(meeting),  class:"btn btn-flat-boxe"  %>
-
                       <% end %>
+          <% end %>
+          <% if meeting.is_a? DailyEmotion %>
+                  <div class="calendar-emotion" >
 
-                        </div>
+                    <% if meeting.user_id == @user.id %>
+                                <% if meeting.emotion_id == 1 %><%="😞"%><% end %>
+                                <% if meeting.emotion_id == 2 %><%="😕"%><% end %>
+                                <% if meeting.emotion_id == 3 %><%="😐"%><% end %>
+                                <% if meeting.emotion_id == 4 %><%="🙂" %><% end %>
+                                <% if meeting.emotion_id == 11 %><%="😁" %><% end %>
+                    </div>
+                    <% end %>
+          <% end %>
+
+
                       <% end %>
     <% end %>
   </div>

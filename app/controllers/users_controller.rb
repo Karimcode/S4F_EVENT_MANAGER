@@ -5,6 +5,13 @@ class UsersController < ApplicationController
     @events = Event.all
       # @event = Event.find(params[:id])
 
+        @daily_emotions = DailyEmotion.all
+    # if DailyEmotion.find(params[:id]).exists?
+    #     @daily_emotion = DailyEmotion.find(params[:id])
+    #     @emotion = @daily_emotion.emotion_id
+    # end
+    # @daily_emotion = DailyEmotion.find(user_id=params[:id])
+
   end
 
   def edit

@@ -16,15 +16,15 @@ Place.destroy_all
 puts "Places and Users destroyed"
 
 
-3.times do
-  User.create!(
-    email: Faker::Internet.email,
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    password: "1234567",
-    password_confirmation: "1234567"
-)
-end
+# 3.times do
+#   User.create!(
+#     email: Faker::Internet.email,
+#     first_name: Faker::Name.first_name,
+#     last_name: Faker::Name.last_name,
+#     password: "1234567",
+#     password_confirmation: "1234567"
+# )
+# end
 
 
 # 2.times do
@@ -40,7 +40,7 @@ louvre =   Place.create!(
     name: "Tuileries",
     avatar: "https://lh3.googleusercontent.com/proxy/vuSlRRLGe70YRMO8EeI3gEaxNbuIJ6pw4PUlbL0o05XSTDads5TwUySzSmuymiORji8JsSwAhXuixi-5eyBoEWvQMYoLVZsJtmNJ4Zie9IN7YVlcvdzqU1i4HXC7GnzoOTI",
     description: "Jardin des Tuileries",
-    user_id: "1"
+    user_id: "20"
   )
 
 louvre.save!
@@ -53,7 +53,7 @@ louvre.save!
     end_at: Time.now + 1*60*60,
     duration: "1",
     description: Faker::Lorem.sentence(word_count: rand(20..100)),
-    place_id: "1"
+    place_id: "2"
   )
 end
 
@@ -69,5 +69,10 @@ end
   )
 end
 
+Emotion.create!(rating: 1)
+Emotion.create!(rating: 2)
+Emotion.create!(rating: 3)
+Emotion.create!(rating: 4)
+Emotion.create!(rating: 5)
 
 puts "Events created"
