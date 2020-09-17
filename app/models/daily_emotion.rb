@@ -3,6 +3,9 @@ class DailyEmotion < ApplicationRecord
   belongs_to :user
   belongs_to :event
 
+  validates_uniqueness_of :emotion_id, scope: [:user_id, :event_id]
+
+
 
 
 

@@ -5,6 +5,7 @@ class EventPolicy < ApplicationPolicy
     end
   end
 
+
     def show?
       true # Tous les users peuvent voir des events
     end
@@ -24,7 +25,7 @@ class EventPolicy < ApplicationPolicy
   private
 
   def is_coach?
-    user.coach?
+    @user.coach?
   end
 
 end

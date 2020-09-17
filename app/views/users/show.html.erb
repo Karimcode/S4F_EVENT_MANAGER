@@ -16,7 +16,7 @@
         </div>
         <div class="button-profile-position">
           <% if @user == current_user %>
-            <%= link_to "Edit profile", edit_user_path(@user), class:"btn-lessen" %>
+            <%= link_to "Edit profile", edit_user_path(@user),class:"btn btn-flat", style:"background-color: blue;" %>
           <% end %>
         </div>
 
@@ -35,7 +35,6 @@
 </div>
 
 <div class="calendar-heading">
-  <div class="calendar">
             <div class="methodologie-card">
 
 <div class="carousel-item">
@@ -75,9 +74,38 @@
                 </div>
             </div>
             <div class="background-review">
-              <h5><strong>À propos</strong></h5>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>>
-            </div>
+              <h5><strong>Abonnement</strong></h5>
+                  <% if !@user.coach %>
+
+                    <div class="background-matiere">
+                        <% if @user.formula %>
+
+                        <div class="disposition-tag">
+                          <h6><strong>Formule: </strong> <%= @user.formula.offer %></h6>
+                        </div>
+                        <div class="disposition-tag">
+                          <h6><strong>Début: </strong> <%= @user.formula.start_at %></h6>
+                        </div>
+                        <div class="disposition-tag">
+                          <h6><strong>Séances restantes dans le mois: </strong> <%= @user.training_number %></h6>
+                        </div>
+                        <div class="disposition-tag">
+                          <h6><strong>Fin: </strong> <%= @user.formula.end_at %></h6>
+                        </div>
+                    <% else %>
+                <div class="disposition-tag">
+                  <h5><strong>Pas encore d'abonnement </strong> </h5>
+                </div>
+                    <% end %>
+
+                    </div>
+                    <% else %>
+                    <div class="disposition-tag">
+                      <h5><strong>Nombre d'abonnés ce mois: </strong> <%=User.where("training_number > ?", 0).count %></h5>
+                    </div>
+                    <% end %>
+
+                    </div>
           </div>
 
 

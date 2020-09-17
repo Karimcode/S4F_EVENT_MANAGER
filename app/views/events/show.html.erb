@@ -59,6 +59,8 @@
     <th>Name</th>
     <th></th>
     <th>Forme du jour</th>
+    <th>Modification</th>
+
   </tr>
 
 <!-- Tableau des notations pour les élèves-->
@@ -77,9 +79,13 @@
                           <% if DailyEmotion.where(user_id: "#{user.id}", event_id: "#{@event.id}").first.emotion_id == 4 %><%="🙂" %><% end %>
                           <% if DailyEmotion.where(user_id: "#{user.id}", event_id: "#{@event.id}").first.emotion_id == 11 %><%="😁" %><% end %>
           </td>
+      <td> <%= puts DailyEmotion.where(user_id: "#{user.id}", event_id: "#{@event.id}").first.id %>
+                <%= link_to "Supprimer", daily_emotion_path(DailyEmotion.where(user_id: "#{user.id}", event_id: "#{@event.id}").first.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-flat", style:"background-color: red;" %>
+      </td>
         <% end %>
 
     </tr>
+
     <% else %>
 <!-- Tableau des notations pour le coach-->
 
@@ -127,11 +133,8 @@
 
 
         <div class="button-profile-position">
-            <%= link_to "Edit event", edit_event_path(@event), class:"btn btn-flat " %>
-        </div>
-
-        <div class="button-profile-position">
-            <%= link_to "Destroy event", event_path(@event), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-flat " %>
+            <%= link_to "Edit event", edit_event_path(@event), class:"btn btn-flat ", style:"margin-right: 10px" %>
+            <%= link_to "Destroy event", event_path(@event), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-flat", style:"background-color: red;" %>
         </div>
 
 

@@ -1,0 +1,105 @@
+
+<div class="container">
+<!-- Tableau des notations -->
+<table id="Résumé-formules">
+  <tr>
+    <th>Nom</th>
+    <th><strong>Formule: </strong></th>
+
+      <th><strong>Début: </strong></th>
+
+
+    <th><strong>Séances restantes dans le mois: </strong></th>
+    <th><strong>Fin du forfait </strong></th>
+
+  </tr>
+
+<!-- Tableau des notations pour les élèves-->
+
+  <% @users.each do |user| %>
+  <% if !user.coach %>
+
+    <tr>
+
+
+          <td><div class="disposition-tag">
+                <h6><%= user.first_name %> <%= user.last_name %></h6>
+                        </div>
+          </td>
+
+                  <td>
+                    <div class="background-matiere">
+                        <% if user.formula %>
+
+                        <div class="disposition-tag">
+                          <h6><%= user.formula.offer %></h6>
+                        </div>
+                  </td>
+                  <td>
+
+                        <div class="disposition-tag">
+                          <h6><%= user.formula.start_at %></h6>
+                        </div>
+                  </td>
+                  <td>
+                        <div class="disposition-tag">
+                          <h5> <%= user.training_number %></h5>
+                        </div>
+                  </td>
+                  <td>
+
+                        <div class="disposition-tag">
+                          <h6><strong>Fin: </strong> <%= user.formula.end_at %></h6>
+                        </div>
+                  </td>
+
+                    <% else %>
+                <div class="disposition-tag">
+                  <h5><strong>Pas encore d'abonnement </strong> </h5>
+                </div>
+                    <% end %>
+
+                    </div>
+ </td>
+          <td>
+          </td>
+        <% end %>
+        <% end %>
+
+    </tr>
+</table>
+
+</div>
+
+
+<div class="container">
+
+      <%= simple_form_for @formula, remote: true  do |f| %>
+        <div class="form-row">
+           <div class="col" >
+          <%= f.association :user, :collection => @users, :include_blank => false, :label_method => :full_name, :value_method => :id %>
+            </div>
+
+       <div class="col" >
+        <%= f.input :offer, collection: ["Silver", "Gold"], :include_blank => false %>
+          </div>
+
+         <div class="col" >
+        <%= f.input :validation, collection: ["true", "false"], :include_blank => false %>
+          </div>
+
+        </div>
+         <div class="col">
+          <p><%= f.input :start_at, placeholder:"Date de début du forfait " %></p>
+        </div>
+
+         <div class="col">
+          <p><%= f.input :end_at, placeholder:"Date de fin du forfait " %></p>
+        </div>
+
+
+
+        <%= f.submit 'Valider',class: "btn btn-flat"%>
+
+      <% end %>
+</div>

@@ -5,10 +5,16 @@
     <%= month_calendar events: @daily_emotions do |date, meetings| %>
       <span class="my-date"><%= date.day %></span>
                       <% meetings.each do |meeting| %>
-                        <div>
- <%= @daily_emotions.where(created_at: date) %>
-                        </div>
+  <% if @daily_emotions.first.emotion_id == 1 %><%="😞"%><% end %>
+  <% if @daily_emotions.first.emotion_id == 2 %><%="😕"%><% end %>
+  <% if @daily_emotions.first.emotion_id == 3 %><%="😐"%><% end %>
+  <% if @daily_emotions.first.emotion_id == 4 %><%="🙂" %><% end %>
+  <% if @daily_emotions.first.emotion_id == 11 %><%="😁" %><% end %>
                       <% end %>
+
     <% end %>
+
   </div>
+
+
 

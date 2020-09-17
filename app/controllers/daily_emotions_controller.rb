@@ -3,7 +3,7 @@ class DailyEmotionsController < ApplicationController
         @daily_emotions = policy_scope(DailyEmotion)
 
         # @daily_emotions = DailyEmotion.all
-        daily_emotion = User.find(params[:id])
+        # daily_emotion = User.find(params[:id])
   end
 
 
@@ -12,21 +12,19 @@ class DailyEmotionsController < ApplicationController
     # @event = Event.last
     @daily_emotion = DailyEmotion.create!(daily_emotion_params)
     authorize @daily_emotion
+    # @daily_emotion.user = current_user
+    @user = User.find(@daily_emotion.user_id)
 
-    # @daily_emotion.event_id = Event.find(params[:id])
-      # redirect_back(fallback_location:"/")
-
-    # respond_to do |f|
-    #   f.html { redirect_back(fallback_location:"/") }
-    #   f.js { render 'daily_emotion' }
-    # end
-
-    @daily_emotion.user = current_user
+    if @daily_emotion.save
+         training_number_calculation
+     end
 
   end
 
   def destroy
-    @daily_emotion = daily_emotion.find(params[:id])
+    @daily_emotion = DailyEmotion.find(params[:id])
+    authorize @daily_emotion
+
     @daily_emotion.destroy
     redirect_to daily_emotions_path
   end
@@ -42,8 +40,14 @@ class DailyEmotionsController < ApplicationController
   private
 
   def daily_emotion_params
-
     params.require(:daily_emotion).permit(:emotion_id, :user_id, :event_id)
   end
 
+  def training_number_calculation
+    @user_training = @user.training_number
+
+    @user_training = @user_training - 1
+    @user.training_number =  @user_training
+    @user.save
+  end
 end

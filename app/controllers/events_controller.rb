@@ -4,6 +4,15 @@ class EventsController < ApplicationController
         @events = policy_scope(Event)
         @daily_emotions = policy_scope(DailyEmotion)
 
+    # @formulas = policy_scope(Formula)
+
+    @formula = Formula.new
+    # authorize @formula
+
+    @users = User.all
+    @user = current_user
+
+
   end
 
   def show

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :events
 
   resources :daily_emotions
+  resources :formulas
 
 
 end

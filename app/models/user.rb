@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :daily_emotions, dependent: :destroy
   has_many :emotions, through: :daily_emotions, dependent: :destroy
   has_one :coach, dependent: :destroy
+  has_one :formula, dependent: :destroy
 
 
   def full_name
