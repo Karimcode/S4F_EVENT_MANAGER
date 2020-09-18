@@ -1,6 +1,10 @@
 
+<div class="banner-event" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url(<%= @place.avatar %>) ;">
 
-<div class="banner-event"style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url(https://images.unsplash.com/photo-1564227589927-2a13874d0a92?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);" >
+
+
+
+
   <div class="container-teacher"style="background-color: Yellow">
       <h1><%= @event.event_date.strftime('%a %d %b %Y') %>   </h1>
       <h1><%= @place.name %>   </h1>
@@ -54,7 +58,7 @@
 
 <div class="container">
 <!-- Tableau des notations -->
-<table id="Résumé">
+<table class="table table-default">
   <tr>
     <th>Name</th>
     <th></th>
@@ -77,7 +81,7 @@
                           <% if DailyEmotion.where(user_id: "#{user.id}", event_id: "#{@event.id}").first.emotion_id == 2 %><%="😕"%><% end %>
                           <% if DailyEmotion.where(user_id: "#{user.id}", event_id: "#{@event.id}").first.emotion_id == 3 %><%="😐"%><% end %>
                           <% if DailyEmotion.where(user_id: "#{user.id}", event_id: "#{@event.id}").first.emotion_id == 4 %><%="🙂" %><% end %>
-                          <% if DailyEmotion.where(user_id: "#{user.id}", event_id: "#{@event.id}").first.emotion_id == 11 %><%="😁" %><% end %>
+                          <% if DailyEmotion.where(user_id: "#{user.id}", event_id: "#{@event.id}").first.emotion_id == 5 %><%="😁" %><% end %>
           </td>
       <td> <%= puts DailyEmotion.where(user_id: "#{user.id}", event_id: "#{@event.id}").first.id %>
                 <%= link_to "Supprimer", daily_emotion_path(DailyEmotion.where(user_id: "#{user.id}", event_id: "#{@event.id}").first.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-flat", style:"background-color: red;" %>
@@ -137,5 +141,6 @@
             <%= link_to "Destroy event", event_path(@event), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-flat", style:"background-color: red;" %>
         </div>
 
+</div>
 
 

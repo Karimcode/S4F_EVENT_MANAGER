@@ -1,0 +1,23 @@
+
+
+<div class="calendar-heading">
+  <div class="calendar">
+    <%= month_calendar events: @events do |date, meetings| %>
+      <span class="my-date"><%= date.day %></span>
+                      <% meetings.each do |meeting| %>
+                        <div>
+          <% if meeting.is_a? Event %>
+                  <% if meeting.title == "Fit" %>
+                        <%= link_to meeting.title, event_path(meeting),  class: "btn btn-flat-fit"   %>
+                  <% else %>
+                        <%= link_to meeting.title, event_path(meeting),  class:"btn btn-flat-boxe"  %>
+                      <% end %>
+          <% end %>
+
+
+
+                      <% end %>
+    <% end %>
+  </div>
+
+

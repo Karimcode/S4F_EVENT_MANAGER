@@ -15,13 +15,18 @@
           <%= link_to "Séances",events_path , class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Performances",daily_emotions_path , class: "nav-link" %>
+          <%= link_to "Participants",daily_emotions_path , class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Abonnements",formulas_path , class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "user-default.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+          <% if current_user.avatar.present? %>
+            <%= cl_image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { togggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+          <%= image_tag "https://res.cloudinary.com/dt6csu5lm/image/upload/v1600363054/zwckk5cbghb26s3hnamh.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
         <div class="dropdown-item text-center dropdown-item-light"> <em><%= current_user.full_name %></em> </div>
             <%= link_to "Profil", user_path(current_user), class: "dropdown-item" %>

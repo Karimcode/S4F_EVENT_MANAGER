@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_one :coach, dependent: :destroy
   has_one :formula, dependent: :destroy
 
+  mount_uploader :avatar, PhotoUploader
 
   def full_name
     "#{first_name} #{last_name}"

@@ -32,6 +32,8 @@ gem 'devise'
 
 gem 'pundit'
 
+gem 'cloudinary'
+gem 'carrierwave'
 gem "simple_calendar", "~> 2.0"
 
 gem 'groupdate'

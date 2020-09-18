@@ -1,8 +1,12 @@
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Abonnements</h1>
 
 <div class="container">
 <!-- Tableau des notations -->
-<table id="Résumé-formules">
-  <tr>
+<table class="table bg-secondary text-center ">
+  <tr class="table table-default" style="
+    color: #ffffff">
+
     <th>Nom</th>
     <th><strong>Formule: </strong></th>
 
@@ -23,33 +27,36 @@
 
 
           <td><div class="disposition-tag">
-                <h6><%= user.first_name %> <%= user.last_name %></h6>
+                <div class="background-matiere">
+                  <h6><%= user.first_name %> <%= user.last_name %></h6>
+                </div>
+
                         </div>
           </td>
 
                   <td>
-                    <div class="background-matiere">
                         <% if user.formula %>
+                    <div class="background-matiere">
 
-                        <div class="disposition-tag">
                           <h6><%= user.formula.offer %></h6>
                         </div>
                   </td>
                   <td>
 
-                        <div class="disposition-tag">
-                          <h6><%= user.formula.start_at %></h6>
+                        <div class="background-matiere">
+                          <h6><%= user.formula.start_at.strftime("%d/%m/%Y") %></h6>
                         </div>
                   </td>
                   <td>
-                        <div class="disposition-tag">
-                          <h5> <%= user.training_number %></h5>
+                            <div class="background-matiere">
+                            <h5> <%= user.training_number %></h5>
                         </div>
+
                   </td>
                   <td>
 
-                        <div class="disposition-tag">
-                          <h6><strong>Fin: </strong> <%= user.formula.end_at %></h6>
+                        <div class="background-matiere">
+                          <h6><%= user.formula.end_at.strftime("%d/%m/%Y") %></h6>
                         </div>
                   </td>
 
@@ -77,5 +84,6 @@
 
         </div>
 
+</div>
 
 

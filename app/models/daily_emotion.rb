@@ -12,7 +12,7 @@ class DailyEmotion < ApplicationRecord
     def start_time
       # self.created_at
       Event.find(self.event_id).event_date
-      # User.find(self.user_id).event_date
+      # User.find(self.user_id).id
 
       # self.event_id.event_date
 

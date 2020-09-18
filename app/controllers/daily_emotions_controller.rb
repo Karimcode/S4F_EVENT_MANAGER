@@ -1,6 +1,7 @@
 class DailyEmotionsController < ApplicationController
   def index
         @daily_emotions = policy_scope(DailyEmotion)
+        @users = User.all
 
         # @daily_emotions = DailyEmotion.all
         # daily_emotion = User.find(params[:id])

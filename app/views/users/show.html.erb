@@ -4,7 +4,18 @@
 
     </div>
 
-<img class="avatar-very-large alt="avatar-very-large" src= <%= "user-default.jpg" %> />
+    <% if @user.avatar.present? %>
+     <%=  cl_image_tag @user.avatar , transformation: [
+  # {effect: "cartoonify"},
+  {radius: "max"},
+  {effect: "outline:30", color: "lightblue"},
+  # {background: "lightblue"},
+  {height: 300, crop: "scale"}
+  ] %>
+
+    <% else %>
+    <img class="avatar-very-large alt="avatar-very-large" src= <%= "https://res.cloudinary.com/dt6csu5lm/image/upload/v1600363054/zwckk5cbghb26s3hnamh.jpg" %> />
+    <% end %>
 
 
     <div class="text-center-teacher">

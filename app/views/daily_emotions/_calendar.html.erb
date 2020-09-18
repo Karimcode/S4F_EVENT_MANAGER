@@ -1,0 +1,19 @@
+
+<!-- Nombre de particpants: la taille de b correspond à la somme des partiipants
+(enregistrés dans le tableau a) -->
+
+<div class="calendar-heading">
+  <div class="calendar">
+    <%= month_calendar events: @daily_emotions do |date, meetings| %>
+      <span class="my-date"><%= date.day %></span>
+            <% a = [] %>
+                <% meetings.each do |meeting| %>
+                <div>
+              <% b = a.length %>
+              <% a << 1 + b %>
+              <% end %>
+              <%= "#{a.last}" %>
+    <% end %>
+                </div>
+    </div>
+</div>

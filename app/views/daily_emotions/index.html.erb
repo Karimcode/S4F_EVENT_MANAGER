@@ -1,20 +1,11 @@
 
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Nombre de participants</h1>
 
-<div class="calendar-heading">
+
+</div><div class="calendar-heading">
   <div class="calendar">
-    <%= month_calendar events: @daily_emotions do |date, meetings| %>
-      <span class="my-date"><%= date.day %></span>
-                      <% meetings.each do |meeting| %>
-  <% if @daily_emotions.first.emotion_id == 1 %><%="😞"%><% end %>
-  <% if @daily_emotions.first.emotion_id == 2 %><%="😕"%><% end %>
-  <% if @daily_emotions.first.emotion_id == 3 %><%="😐"%><% end %>
-  <% if @daily_emotions.first.emotion_id == 4 %><%="🙂" %><% end %>
-  <% if @daily_emotions.first.emotion_id == 11 %><%="😁" %><% end %>
-                      <% end %>
-
-    <% end %>
-
+                <div id="events_calendar">
+                  <%= render partial: "calendar", locals: {events: @daily_emotions} %>
+                </div>
   </div>
-
-
-

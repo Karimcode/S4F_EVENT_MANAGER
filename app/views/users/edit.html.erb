@@ -8,7 +8,10 @@
     <div class="col">
       <p><%= f.input :last_name, placeholder:"Enter your Last Name" %></p>
     </div>
-
+    <div class="col">
+      <%= f.input :avatar%>
+      <%= f.input :avatar_cache, as: :hidden %>
+    </div>
     <div class="col">
       <p><%= f.input :phone, placeholder:"Enter your Phone number" %></p>
     </div>

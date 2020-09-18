@@ -1,19 +1,81 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+  <body style="
+    background-color: #ffe4c485;
+">
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media-exp1.licdn.com/dms/image/C511BAQEuIUnxur1TNg/company-background_10000/0?e=1599310800&v=beta&t=2EnbHBWsbq7gHH6ymNYZd9uyrhAeXmlsIHCsPqMeuFc);">
+
+<!-- Banner
+ -->
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dt6csu5lm/image/upload/v1600421664/20545285_334398583670826_8064746374665873953_o_xaqbmp.jpg);">
   <div class="container">
     <h1>Rejoignez Street4Fit<strong> et renforcez </strong> avec nous <strong>votre leadership</strong>!</h1>
     <p>Venez rejoindre la communauté des sportifs déterminés</p>
-    <a class="btn btn-flat" href="#">Je m'inscris</a>
+    <%= link_to "Inscription", new_user_session_path, class: "btn btn-flat" %>
+    <a class="btn btn-flat bg-primary" href= "https://Street4Fit.com">En savoir plus</a>
   </div>
 </div>
 
-<h2>Users</h2>
+
+
+<!-- Valeurs -->
+
+<div class="container">
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Nos valeurs</h1>
+  <p class="lead">Une communauté solidaire centrée sur l'humain </p>
+</div>
+
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal"><%= cl_image_tag "https://res.cloudinary.com/dt6csu5lm/image/upload/v1600415014/boxing_1_cgwkvr.png", height: 200, width:200 %></h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">  Solidarité </h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>Une communauté bienveillante qui encourage tous ses membres</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal"><%= cl_image_tag "https://res.cloudinary.com/dt6csu5lm/image/upload/v1600431200/ascending_rzw9cm.png", height: 200, width:200 %></h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">  Progression </h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>Les StreetFiters se soutiennent et progressent ensemble comme une vraie équipe</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal"><%= cl_image_tag "https://res.cloudinary.com/dt6csu5lm/image/upload/v1600414990/cardiogram_w2wosa.png", height: 200, width:200 %></h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">  Fun </h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>Une ambiance exceptionnelle dans un cadre magnifique à chaque séance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <h2>Users</h2>
+ -->
+ <div class="container">
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h2 class="display-4">Nos formidables StreetFiters !</h2>
+  <p class="lead">Une équipe qui s'agrandit de jour en jour</p>
+</div>
 
 <div class="card-product">
           <% @users.each do |user| %>
-        <%= image_tag "https://thispersondoesnotexist.com/image" %>
+          <%= cl_image_tag user.avatar, class:"text-space-profile" %>
+
 
           <div class="card-product-infos">
             <h2><%= user.first_name %></h2>
@@ -22,43 +84,105 @@
           </div>
           <% end %>
 
+    </div>
 </div>
 
+<!-- <h2>Jours d'entrainement</h2>
+ -->
+ <div class="container">
 
-<h2>Jours d'entrainement</h2>
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Prochaines séances</h1>
+  <p class="lead">Surveillez notre planning pour connaître les dernières séances</p>
+</div>
 
 <div class="calendar-heading">
   <div class="calendar">
-    <%= month_calendar events: @events do |date, meetings| %>
-      <span class="my-date"><%= date.day %></span>
-                      <% meetings.each do |meeting| %>
-                        <div>
-                          <!-- Mettre le numéro de participation à la séance -->
-                  <% if meeting.title == "Fit" %>
-
-                        <%= link_to meeting.title, event_path(meeting),  class: "btn btn-flat-fit"   %>
-
-                  <% else %>
-
-                        <%= link_to meeting.title, event_path(meeting),  class:"btn btn-flat-boxe"  %>
-
-                      <% end %>
-
-                        </div>
-                      <% end %>
-    <% end %>
+                <div id="events_calendar">
+                  <%= render partial: "calendar", locals: {events: @events} %>
+                </div>
   </div>
 
-<h2>Spots d'entrainement</h2>
 
+
+
+<!-- <h2>Prix</h2>
+ -->
+<div class="container">
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Nos formules</h1>
+  <p class="lead">Choisissez l'abonnement qui vous convient le mieux. Mais n'oubliez pas, la régularité est la clé :) </p>
+</div>
+
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Hobby</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">12€ <small class="text-muted">/ séance</small></h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>Séance Fitness ou Boxe</li>
+          <li>1 séance dans la semaine</li>
+          <li><s>Accès au WhatsApp Street4Fit</li>
+          <li>Suivi des performances</li>
+          <li>Agenda des séances</s></li>
+        </ul>
+    <a class="btn btn-lg btn-block btn-outline-primary" href= "https://street4fit.com/contact.html">En savoir plus</a>
+
+      </div>
+    </div>
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Silver</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">40€ <small class="text-muted">/ mois</small></h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>Séance Fitness ou Boxe</li>
+          <li>1 séance dans la semaine</li>
+          <li>Accès au WhatsApp Street4Fit</li>
+          <li>Suivi des performances</li>
+          <li>Agenda des séances</li>
+        </ul>
+
+        <%= link_to "Je m'inscris",  new_user_session_path, class: "btn btn-lg btn-block btn-primary", style: "color: white" %>
+      </div>
+    </div>
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Gold</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">70€ <small class="text-muted">/ mois</small></h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>Séance Fitness et Boxe</li>
+          <li>2 séances dans la semaine</li>
+          <li>Accès au WhatsApp Street4Fit</li>
+          <li>Suivi des performances</li>
+          <li>Agenda des séances</li>
+        </ul>
+
+        <%= link_to "Je m'inscris",  new_user_session_path, class: "btn btn-lg btn-block btn-primary", style: "color: white" %>
+
+      </div>
+    </div>
+  </div>
+
+<!-- <h2>Spots</h2>
+ -->
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Spots d'entraînement</h1>
+  <p class="lead">Nous sommes présents dans plusieurs parcs Parisiens</p>
+</div>
 <div class="cards">
         <% @places.each do |place| %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= place.avatar %>)">
             <%= place.name %>
           </div>
         <% end %>
+  </div>
 </div>
 
-
-
-
+  </body>
