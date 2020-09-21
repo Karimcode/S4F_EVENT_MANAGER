@@ -23,7 +23,7 @@
         <li class="nav-item dropdown">
 
           <% if current_user.avatar.present? %>
-            <%= cl_image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { togggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= cl_image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
           <%= image_tag "https://res.cloudinary.com/dt6csu5lm/image/upload/v1600363054/zwckk5cbghb26s3hnamh.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
